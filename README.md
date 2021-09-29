@@ -1,5 +1,5 @@
 
-## 2021
+## :date: 2021
 
 * [Geospatial Networks {sfnetworks} meets {ggraph}](https://loreabad6.github.io/posts/2021-03-05-geospatial-network-visualization/) added: `2021-09-27 19:43`
   + tagged: **blog post** **geostuff** **R language**
@@ -11,7 +11,7 @@
 * [Latex FAQ (math HOWTOs)](https://www.math-linux.com/latex-26/faq/latex-faq/) added: `2021-01-08 20:24`
   + tagged: **MATH**
 
-## 2020
+## :date: 2020
 
 * [Euler’s Formula: A Complete Guide](https://mathvault.ca/euler-formula) added: `2020-10-02 11:08`
   + tagged: **blog post** **MATH**
@@ -20,7 +20,7 @@
 * [blogdown: Creating Websites with R Markdown](https://bookdown.org/yihui/blogdown/) added: `2020-02-23 14:12`
   + tagged: **R language**
 
-## 2019
+## :date: 2019
 
 * [Mathigon - Textbook of the Future](https://mathigon.org/) added: `2019-10-12 18:53`
   + tagged: **MATH**
@@ -30,7 +30,7 @@
   + tagged: **geostuff**
 * [Radiooooo: the musical time machine](https://radiooooo.com/) added: `2019-03-24 14:15`
 
-## 2018
+## :date: 2018
 
 * [How much our maps are distorted? | Jakub Nowosad](https://nowosad.github.io/post/maps-distortion/) added: `2018-12-12 12:25`
   + tagged: **blog post** **geostuff** **R language**

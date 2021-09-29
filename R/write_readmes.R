@@ -1,16 +1,16 @@
 #  check bookmarks ####
 
-stopifnot(exists("bms"), exists("bms_tags"))
+if( ! exists("bms") ) source("R/read_readme.R")
+
+bms_years = unclass(as.POSIXlt(bms$date))$year
 
 # create README.md ####
 
 readme = character()
 
-bms_years = unclass(as.POSIXlt(bms$date))$year
-
 for( i in seq_along(bms_tags) ) {
    if( i == 1 || bms_years[i] < bms_years[i - 1] ) {
-      readme = c(readme, "", as.character(bms$date[i], "## %Y"), "")
+      readme = c(readme, "", as.character(bms$date[i], "## :date: %Y"), "")
    }
    readme = c(readme, paste0(
       "* [", bms$title[i], "](", bms$link[i], ") ",
