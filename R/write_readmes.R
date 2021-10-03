@@ -1,12 +1,20 @@
-#  check bookmarks ####
+# check bookmarks ####
 
 if( ! exists("bms") ) source("R/read_readme.R")
 
-bms_years = unclass(as.POSIXlt(bms$date))$year
+bms_years = unclass(as.POSIXlt(bms$date))$year + 1900
 
-# create README.md ####
+#  README.md head ####
 
-readme = character()
+readme = paste0(
+   "[`", unique(bms_years), "`]",
+   "(#date-", unique(bms_years),")",
+   collapse = " "
+)
+
+readme = c("# My bookmarks", "", paste("Go to year:", readme))
+
+#  README.md body ####
 
 for( i in seq_along(bms_tags) ) {
    if( i == 1 || bms_years[i] < bms_years[i - 1] ) {
@@ -23,8 +31,10 @@ for( i in seq_along(bms_tags) ) {
    }
 }
 
-#  write README.md ####
+# write README.md ####
 
 message("Saving bookmarks by date in README.md")
 
 writeLines(readme, "README.md")
+
+rm(list = ls(pattern = "^readme"))
