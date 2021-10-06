@@ -1,0 +1,14 @@
+on:
+  workflow_dispatch:
+    inputs:
+      link:
+        description: 'Bookmark URL:'
+        required: true
+
+jobs:
+  add:
+    name: Add bookmark
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v2
