@@ -4,6 +4,7 @@ Go to year: [`2021`](#date-2021) [`2020`](#date-2020) [`2019`](#date-2019) [`201
 
 ## :date: 2021
 
+* [GitHub Actions Documentation - GitHub Docs](https://docs.github.com/en/actions) added: `2021-10-07 01:14`
 * [Geospatial Networks {sfnetworks} meets {ggraph}](https://loreabad6.github.io/posts/2021-03-05-geospatial-network-visualization/) added: `2021-09-27 19:43`
   + tagged: **blog post** **geostuff** **R language**
 * [Geocomputation with R](https://geocompr.robinlovelace.net/) added: `2021-09-12 20:21`
