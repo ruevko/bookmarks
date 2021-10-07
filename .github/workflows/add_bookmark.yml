@@ -2,7 +2,7 @@ on:
   workflow_dispatch:
     inputs:
       link:
-        description: 'Bookmark URL:'
+        description: "Bookmark URL:"
         required: true
 
 jobs:
@@ -12,3 +12,12 @@ jobs:
     steps:
     - name: Checkout the repository
       uses: actions/checkout@v2
+    - name: Add the bookmark
+      run: Rscript R/add_bookmark.R "${{ github.event.inputs.link }}"
+    - name: Commmit the change
+      run: |
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
+        git add README.md
+        git commit -m "Add new bookmark"
+        git push
