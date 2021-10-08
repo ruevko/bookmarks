@@ -20,6 +20,16 @@ new_title = if( is.na(new_args[2]) | new_args[2] == "" ) {
    xml_text(xml_find_first(read_html(new_link), "/html/head/title"), trim = TRUE)
 } else new_args[2]
 
+# set title @GITHUB_ENV ####
+
+gh_env_test = "if [ -z \"$GITHUB_ENV\" ]; then echo FALSE; else echo TRUE; fi"
+
+gh_env_test = as.logical(system(gh_env_test, intern = TRUE)) # TRUE for workflow runs
+
+if(gh_env_test) system(paste("echo \"TITLE=", new_title, "\" >> $GITHUB_ENV", sep = "'"))
+
+rm(gh_env_test)
+
 # get new bookmark tags ####
 
 new_tags = if( length(new_args) > 2 ) new_args[ 3:length(new_args) ] else character()
