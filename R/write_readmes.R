@@ -26,7 +26,7 @@ for( i in seq_along(bms_tags) ) {
    ) )
    if( length(bms_tags[[i]]) > 0 ) {
       readme = c(readme, paste(
-         "  + tagged:", paste0("**", bms_tags[[i]], "**", collapse = " ")
+         "  + tagged:", paste0("**", sort( bms_tags[[i]] ), "**", collapse = " ")
       ) )
    }
 }
