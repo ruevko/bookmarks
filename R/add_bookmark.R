@@ -2,18 +2,18 @@
 
 new_args = commandArgs(trailingOnly = TRUE)
 
-new_link = new_args[1]
+new_args = ifelse(trimws(new_args) != "", trimws(new_args), NA)
 
-if( is.na(new_link) ) stop("You didn't provide the new bookmark's URL. It is required.")
+if( is.na(new_link <- new_args[1]) ) stop("You didn't provide the new bookmark's URL.")
 
 # get (or lookup) title ####
 
-new_title = if( is.na(new_args[2]) | new_args[2] == "" ) {
+new_title = if( is.na(new_args[2]) ) {
    message("You didn't provide the new bookmark's title. Looking it up...")
 
    if( ! suppressWarnings(require("xml2", lib.loc = "R")) ) {
       options(repos = "https://cran.rstudio.com")
-      install.packages("xml2", lib = "R")
+      install.packages("xml2", lib = "R", quiet = TRUE)
       library("xml2", lib.loc = "R")
    }
 
@@ -32,7 +32,9 @@ rm(gh_env_test)
 
 # get new bookmark tags ####
 
-new_tags = if( length(new_args) > 2 ) new_args[ 3:length(new_args) ] else character()
+new_tags = if( ! is.na(new_args[3]) ) {
+   trimws( strsplit(new_args[3], ",")[[1]] )
+} else character()
 
 #  append old bookmarks ####
 

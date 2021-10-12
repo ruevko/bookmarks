@@ -4,6 +4,10 @@ on:
       link:
         description: "Bookmark URL:"
         required: true
+      title:
+        description: "Bookmark title:"
+      tags:
+        description: "Bookmark tags (comma separated):"
 
 jobs:
   add:
@@ -13,7 +17,7 @@ jobs:
     - name: Checkout the repository
       uses: actions/checkout@v2
     - name: Add the bookmark
-      run: Rscript R/add_bookmark.R "${{ github.event.inputs.link }}"
+      run: Rscript R/add_bookmark.R "${{ github.event.inputs.link }}" "${{ github.event.inputs.title }}" "${{ github.event.inputs.tags }}"
     - name: Commmit the change
       run: |
         git config user.name "github-actions"
