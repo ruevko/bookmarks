@@ -12,7 +12,7 @@ doc_unlabeled = ifelse(is.na(doc_args[2]), "Unlabeled", doc_args[2])
 
 if( ! suppressWarnings(require("xml2", lib.loc = "R")) ) {
    options(repos = "https://cran.rstudio.com")
-   install.packages("xml2", lib = "R")
+   install.packages("xml2", lib = "R", quiet = TRUE)
    library("xml2", lib.loc = "R")
 }
 
@@ -61,9 +61,9 @@ message("Tags:", paste0(" \"", unique(unlist(bms_tags)), "\""))
 
 bms = as.numeric(xml_attr(doc_nodes, "add_date"))
 
-bms = ifelse(is.na(bms), Sys.time(), bms)
+bms = ifelse(is.na(bms), as.numeric(Sys.time()), bms)
 
-bms = ifelse(bms > 1e10, bms / 1e6, bms) # in case of microseconds
+bms = ifelse(bms > 1e10, round(bms / 1e6), bms) # in case of microseconds
 
 bms = data.frame(
    link = xml_attr(doc_nodes, "href"),
@@ -73,10 +73,12 @@ bms = data.frame(
 
 # run R/write_readmes.R ####
 
-rm(list = grep("^doc", ls(), value = TRUE))
+rm(list = ls(pattern = "^doc"))
 
 bms_tags = bms_tags[order(bms$date, decreasing = TRUE)]
 
 bms = bms[order(bms$date, decreasing = TRUE), ]
+
+rownames(bms) = NULL
 
 source("R/write_readmes.R")
