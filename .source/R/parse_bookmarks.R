@@ -10,10 +10,11 @@ doc_unlabeled = ifelse(is.na(doc_args[2]), "Unlabeled", doc_args[2])
 
 # (install &) load xml2 ####
 
-if( ! suppressWarnings(require("xml2", lib.loc = "R")) ) {
+if( ! suppressWarnings(require("xml2", lib.loc = ".source/R")) ) {
    options(repos = "https://cran.rstudio.com")
-   install.packages("xml2", lib = "R", quiet = TRUE)
-   library("xml2", lib.loc = "R")
+   install.packages("xml2", lib = ".source/R", quiet = TRUE)
+   message("xml2 installed from https://cran.rstudio.com")
+   library("xml2", lib.loc = ".source/R")
 }
 
 #   parse the bookmarks ####
@@ -81,4 +82,4 @@ bms = bms[order(bms$date, decreasing = TRUE), ]
 
 rownames(bms) = NULL
 
-source("R/write_readmes.R")
+source(".source/R/write_readmes.R")

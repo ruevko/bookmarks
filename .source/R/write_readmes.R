@@ -1,6 +1,6 @@
 # check bookmarks ####
 
-if( ! exists("bms") ) source("R/read_readme.R")
+if( ! exists("bms") ) source(".source/R/read_readme.R")
 
 bms_years = unclass(as.POSIXlt(bms$date))$year + 1900
 
