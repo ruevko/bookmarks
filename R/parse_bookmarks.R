@@ -2,7 +2,7 @@
 
 doc_args = commandArgs(trailingOnly = TRUE)
 
-doc_file = ifelse(is.na(doc_args[1]), "DEMO/GoogleBookmarks.html", doc_args[1])
+doc_file = ifelse(is.na(doc_args[1]), ".source/DEMO/GoogleBookmarks.html", doc_args[1])
 
 stopifnot(file.exists(doc_file), ! file.exists("README.md"))
 
