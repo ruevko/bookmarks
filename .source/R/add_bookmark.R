@@ -27,9 +27,11 @@ gh_env_test = "if [ -z \"$GITHUB_ENV\" ]; then echo FALSE; else echo TRUE; fi"
 
 gh_env_test = as.logical(system(gh_env_test, intern = TRUE)) # TRUE for workflow runs
 
-if(gh_env_test) system(paste("echo \"TITLE=", new_title, "\" >> $GITHUB_ENV", sep = "'"))
+gh_env = paste("echo ", c("TITLE<<EOF",new_title,"EOF"), " >> $GITHUB_ENV", sep = "'")
 
-rm(gh_env_test)
+if(gh_env_test) system(paste(gh_env, collapse = "\n"))
+
+rm(gh_env, gh_env_test)
 
 # get new bookmark tags ####
 
