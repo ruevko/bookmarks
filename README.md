@@ -1,6 +1,11 @@
 # My bookmarks
 
-Go to year: [`2021`](#date-2021) [`2020`](#date-2020) [`2019`](#date-2019) [`2018`](#date-2018)
+Go to year: [`2022`](#date-2022) [`2021`](#date-2021) [`2020`](#date-2020) [`2019`](#date-2019) [`2018`](#date-2018)
+
+## :date: 2022
+
+* [Slides by me](https://ruevko.github.io/slides) added: `2022-01-17 05:25`
+  + tagged: **Personal**
 
 ## :date: 2021
 
